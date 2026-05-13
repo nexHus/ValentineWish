@@ -30,31 +30,7 @@ const animationTimeline = () => {
   const bgMusic = document.getElementById("bgMusic");
   const replyBtn = document.getElementById("replay");
 
-  const startMusic = () => {
-    if (!bgMusic) {
-      return;
-    }
-
-    bgMusic.muted = true;
-    const playPromise = bgMusic.play();
-    if (playPromise && typeof playPromise.catch === "function") {
-      playPromise
-        .then(() => {
-          bgMusic.muted = false;
-        })
-        .catch(() => {
-          bgMusic.muted = false;
-        });
-      return;
-    }
-
-    bgMusic.muted = false;
-  };
-
-  startMusic();
-  bgMusic.addEventListener("canplay", startMusic, { once: true });
-  bgMusic.addEventListener("canplaythrough", startMusic, { once: true });
-  window.addEventListener("load", startMusic, { once: true });
+  // Music playback will be started by user gesture (Start button)
 
   tl.set(".replay-btn", {
     visibility: "hidden",
@@ -352,4 +328,26 @@ const resolveFetch = () => {
   });
 };
 
-resolveFetch().then(animationTimeline());
+resolveFetch().then(() => {
+  const startScreen = document.getElementById("startScreen");
+  const startBtn = document.getElementById("startBtn");
+  if (startScreen) startScreen.classList.remove("hidden");
+
+  if (startBtn) {
+    startBtn.addEventListener("click", () => {
+      if (startScreen) startScreen.classList.add("hidden");
+      const bgMusic = document.getElementById("bgMusic");
+      if (bgMusic) {
+        try {
+          bgMusic.muted = false;
+          bgMusic.play().catch(() => {});
+        } catch (e) {}
+      }
+      // Start the animation flow after user gesture
+      animationTimeline();
+    });
+  } else {
+    // Fallback: start immediately
+    animationTimeline();
+  }
+});

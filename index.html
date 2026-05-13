@@ -135,10 +135,19 @@
     <!-- Audio Player -->
     <div class="audio-container">
       <label class="audio-label" for="bgMusic">🎵 Birthday Song Play |  Pause</label>
-      <audio id="bgMusic" controls autoplay muted preload="auto" playsinline>
+      <audio id="bgMusic" controls autoplay preload="auto" playsinline>
         <source src="img/song.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
+    </div>
+    
+    <!-- Start screen: user gesture to start music and site flow -->
+    <div id="startScreen" class="start-screen">
+      <div class="start-card">
+        <h1>Happy Birthday</h1>
+        <p>Tap to start the music and the surprise</p>
+        <button id="startBtn" class="start-btn" type="button">Start</button>
+      </div>
     </div>
   </body>
 
