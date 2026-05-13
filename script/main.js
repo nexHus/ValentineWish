@@ -30,6 +30,19 @@ const animationTimeline = () => {
   const bgMusic = document.getElementById("bgMusic");
   const replyBtn = document.getElementById("replay");
 
+  const startMusic = () => {
+    if (!bgMusic) {
+      return;
+    }
+
+    const playPromise = bgMusic.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {});
+    }
+  };
+
+  startMusic();
+
   tl.set(".replay-btn", {
     visibility: "hidden",
     opacity: 0,
