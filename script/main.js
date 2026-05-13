@@ -27,6 +27,7 @@ const animationTimeline = () => {
   };
 
   const tl = new TimelineMax();
+  const bgMusic = document.getElementById("bgMusic");
 
   tl.to(".container", 0.1, {
     visibility: "visible",
@@ -272,6 +273,11 @@ const animationTimeline = () => {
   const replyBtn = document.getElementById("replay");
   replyBtn.addEventListener("click", () => {
     tl.restart();
+    if (bgMusic) {
+      bgMusic.pause();
+      bgMusic.currentTime = 0;
+      bgMusic.play().catch(() => {});
+    }
   });
 };
 

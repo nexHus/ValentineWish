@@ -2,19 +2,29 @@ html {
   box-sizing: border-box;
 }
 
+* {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
+  padding: 0;
   font-family: "Work Sans", sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
 }
 
 .container {
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
   margin: 0 auto;
   text-align: center;
   visibility: hidden;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
 }
 
 .container div.six {
@@ -39,6 +49,11 @@ body {
 
 .one {
   font-size: 4.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  margin: 0;
+  padding: 0 20px;
 }
 
 .one > img {
@@ -48,27 +63,50 @@ body {
   height: auto;
 }
 
+.one #name {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: transform 0.3s ease;
+}
+
 .two {
   font-size: 1.2rem;
-  font-weight: lighter;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin: 15px 0;
+  transition: opacity 0.3s ease;
 }
 
 .three {
   font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.three p {
+  margin: 0;
 }
 
 .four .text-box {
   width: 600px;
   margin: 0 auto;
-  border: 3px solid #aaa;
-  border-radius: 5px;
-  padding: 10px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  padding: 20px;
   position: relative;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .text-box p {
   margin: 0;
   text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 .text-box span {
@@ -77,12 +115,22 @@ body {
 
 .text-box .fake-btn {
   position: absolute;
-  right: 5px;
-  bottom: 5px;
-  color: #fff;
-  background-color: rgb(21, 161, 237);
-  padding: 5px 8px;
-  border-radius: 3px;
+  right: 10px;
+  bottom: 10px;
+  color: #ffffff;
+  background-color: #000000;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #000000;
+}
+
+.text-box .fake-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+  transform: scale(1.05);
 }
 
 .five p {
@@ -90,36 +138,57 @@ body {
   position: absolute;
   left: 0;
   right: 0;
+  transition: all 0.3s ease;
+  margin: 15px 0;
 }
 
 .idea-3 strong {
-  padding: 3px 5px;
-  border-radius: 3px;
+  padding: 5px 12px;
+  border-radius: 4px;
   display: inline-block;
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  border: 2px solid #000000;
 }
 
 .five .idea-5 {
   font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
 }
 
 .idea-5 span,
 .idea-6 span,
 .wish-hbd span {
   display: inline-block;
+  transition: transform 0.3s ease;
 }
 
 .idea-6 span {
   font-size: 15rem;
+  font-weight: 900;
+  letter-spacing: 2px;
 }
 
 .six {
   position: relative;
+  transition: all 0.3s ease;
 }
 
 .six img {
   display: inline-block;
-  max-width: 45%;
+  max-width: 20%;
+  border-radius: 50%;
+
   height: auto;
+  transition: transform 0.3s ease;
+}
+
+.six img:hover {
+  transform: scale(1.02);
 }
 
 .six .hat {
@@ -213,24 +282,101 @@ body {
 
 .wish-hbd {
   font-size: 3em;
-  margin: 0;
-  /* text-transform: uppercase; */
+  margin: 15px 0 0 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
 .wish h5 {
-  font-weight: lighter;
+  font-weight: 300;
   font-size: 2rem;
-  margin: 10px 0 0;
+  margin: 15px 0 0 0;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
 }
 
 .nine p {
   font-size: 2rem;
-  font-weight: lighter;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin: 20px 0;
+  transition: all 0.3s ease;
 }
 
 #replay {
   z-index: 3;
   cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 5px;
+}
+
+.replay-btn {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 1100;
+  display: inline-block;
+  margin: 0;
+  padding: 12px 20px;
+  border: 2px solid #000000;
+  border-radius: 999px;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+#replay:hover {
+  transform: scale(1.05);
+}
+
+.replay-btn:hover {
+  transform: translateX(-50%) scale(1.04);
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.last-smile {
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+/* Audio Player Styling */
+.audio-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  max-width: 300px;
+  transition: all 0.3s ease;
+}
+
+.audio-container:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.audio-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+  letter-spacing: 0.5px;
+}
+
+audio {
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  accent-color: #000000;
 }
 
 /* Media Queries */
@@ -258,18 +404,81 @@ body {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .one {
+    font-size: 3.5rem;
+    letter-spacing: 1.5px;
+  }
+
+  .two {
+    font-size: 1rem;
+  }
+
+  .three {
+    font-size: 2.5rem;
+  }
+
+  .four .text-box {
+    width: 85%;
+    padding: 15px;
+  }
+
+  .five p {
+    font-size: 1.5rem;
+  }
+
+  .five .idea-5 {
+    font-size: 2.5rem;
+  }
+
+  .wish-hbd {
+    font-size: 2em;
+  }
+
+  .wish h5 {
+    font-size: 1.3rem;
+  }
+
+  .audio-container {
+    bottom: 15px;
+    right: 15px;
+    max-width: 250px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .container {
-    width: 90%;
+    width: 100%;
+  }
+
+  .one {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+  }
+
+  .two {
+    font-size: 0.95rem;
+  }
+
+  .three {
+    font-size: 2rem;
   }
 
   .four .text-box {
     width: 90%;
+    padding: 12px;
   }
 
   .text-box .fake-btn {
-    right: 5px;
-    bottom: -38px;
+    right: 8px;
+    bottom: 8px;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .five p {
+    font-size: 1.2rem;
+    padding: 0 15px;
   }
 
   .idea-5 span {
@@ -277,7 +486,7 @@ body {
   }
 
   .idea-6 span {
-    font-size: 10rem;
+    font-size: 8rem;
   }
 
   .six .hat {
@@ -286,15 +495,36 @@ body {
   }
 
   .wish-hbd {
-    font-size: 2.3em;
+    font-size: 1.8em;
   }
 
   .wish h5 {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
   }
 
   .nine p {
-    font-size: 1.5rem;
-    font-weight: lighter;
+    font-size: 1.2rem;
+  }
+
+  .replay-btn {
+    font-size: 0.95rem;
+    padding: 10px 18px;
+    bottom: 16px;
+  }
+
+  .audio-container {
+    bottom: 10px;
+    right: 10px;
+    max-width: 200px;
+    padding: 10px;
+  }
+
+  .audio-label {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+  }
+
+  audio {
+    height: 32px;
   }
 }
