@@ -28,6 +28,13 @@ const animationTimeline = () => {
 
   const tl = new TimelineMax();
   const bgMusic = document.getElementById("bgMusic");
+  const replyBtn = document.getElementById("replay");
+
+  tl.set(".replay-btn", {
+    visibility: "hidden",
+    opacity: 0,
+    pointerEvents: "none",
+  });
 
   tl.to(".container", 0.1, {
     visibility: "visible",
@@ -258,6 +265,18 @@ const animationTimeline = () => {
     })
     .staggerFrom(".nine p", 1, ideaTextTrans, 1.2)
     .to(
+      ".replay-btn",
+      0.6,
+      {
+        visibility: "visible",
+        opacity: 1,
+        pointerEvents: "auto",
+        className: "+=is-visible",
+        ease: Power2.easeOut,
+      },
+      "+=0.3"
+    )
+    .to(
       ".last-smile",
       0.5,
       {
@@ -270,7 +289,6 @@ const animationTimeline = () => {
   // tl.timeScale(2);
 
   // Restart Animation on click
-  const replyBtn = document.getElementById("replay");
   replyBtn.addEventListener("click", () => {
     tl.restart();
     if (bgMusic) {

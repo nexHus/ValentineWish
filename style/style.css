@@ -319,7 +319,11 @@ body {
   bottom: 20px;
   transform: translateX(-50%);
   z-index: 1100;
+
   display: inline-block;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
   margin: 0;
   padding: 12px 20px;
   border: 2px solid #000000;
@@ -328,6 +332,15 @@ body {
   color: #000000;
   font-size: 1rem;
   letter-spacing: 0.5px;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.replay-btn.is-visible {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  animation: replayFloat 2.8s ease-in-out infinite;
 }
 
 #replay:hover {
@@ -335,9 +348,25 @@ body {
 }
 
 .replay-btn:hover {
-  transform: translateX(-50%) scale(1.04);
+  transform: translateX(-50%) translateY(-3px) scale(1.04);
   background-color: #000000;
   color: #ffffff;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.replay-btn:active {
+  transform: translateX(-50%) translateY(0) scale(0.98);
+}
+
+@keyframes replayFloat {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+  }
 }
 
 .last-smile {
