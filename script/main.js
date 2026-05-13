@@ -35,13 +35,26 @@ const animationTimeline = () => {
       return;
     }
 
+    bgMusic.muted = true;
     const playPromise = bgMusic.play();
     if (playPromise && typeof playPromise.catch === "function") {
-      playPromise.catch(() => {});
+      playPromise
+        .then(() => {
+          bgMusic.muted = false;
+        })
+        .catch(() => {
+          bgMusic.muted = false;
+        });
+      return;
     }
+
+    bgMusic.muted = false;
   };
 
   startMusic();
+  bgMusic.addEventListener("canplay", startMusic, { once: true });
+  bgMusic.addEventListener("canplaythrough", startMusic, { once: true });
+  window.addEventListener("load", startMusic, { once: true });
 
   tl.set(".replay-btn", {
     visibility: "hidden",
